@@ -30,7 +30,7 @@
 
     <link name="base_link">
         <visual>
-            <origin xyz="0.0 0.01 0.0" rpy="0 0 0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://jetbot_mirea_description/meshes/jetbot_base.stl" scale="0.001 0.001 0.001"/>
                 <box size="0.132 0.095 0.032"/>
@@ -54,18 +54,18 @@
     <joint name="wheel_left_joint" type="continuous">
         <parent link="base_link"/>
         <child link="wheel_left_link"/>
-        <origin xyz="0.0 0.06 -0.005" rpy="-1.57 0 0"/>
+        <origin xyz="0.0 0.08 -0.005" rpy="-1.57 0 0"/>
         <!-- <axis xyz="0 0 1"/> -->
     </joint>
 
     <link name="wheel_left_link">
         <visual>
-            <origin xyz="0 0.06 -0.005" rpy="1.57 0 0"/>
+            <origin xyz="0 0.08 -0.005" rpy="1.57 0 0"/>
             <geometry>
                 <mesh filename="package://jetbot_mirea_description/meshes/jetbot_left_wheel.stl" scale="0.001 0.001 0.001"/>
                 <!-- <cylinder length="0.005" radius="0.032"/> -->
             </geometry>
-            <material name="black"/>
+            <material name="dark"/>
         </visual>
 
         <collision>
@@ -84,18 +84,18 @@
     <joint name="wheel_right_joint" type="continuous">
         <parent link="base_link"/>
         <child link="wheel_right_link"/>
-        <origin xyz="0 -0.06 -0.005" rpy="-1.57 0 0"/>
+        <origin xyz="0 -0.08 -0.005" rpy="-1.57 0 0"/>
         <!-- <axis xyz="0 0 1"/> -->
     </joint>
 
     <link name="wheel_right_link">
         <visual>
-            <origin xyz="0.0 -0.06 -0.005" rpy="1.57 0 0"/>
+            <origin xyz="0.0 -0.08 -0.005" rpy="1.57 0 0"/>
             <geometry>
                 <mesh filename="package://jetbot_mirea_description/meshes/jetbot_right_wheel.stl" scale="0.001 0.001 0.001"/>
                 <!-- <cylinder length="0.005" radius="0.032"/> -->
             </geometry>
-            <material name="black"/>
+            <material name="dark"/>
         </visual>
        
         <collision>
@@ -118,9 +118,9 @@
 
     <link name="upperplate_link">
         <visual>
-            <origin xyz="-0.014 0.0 0.0" rpy="0 0 0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <box size="0.093 0.085 0.005"/>
+                <box size="0.126 0.085 0.005"/>
             </geometry>
             <material name="dark"/>
         </visual>
@@ -128,7 +128,7 @@
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <box size="0.095 0.085 0.005"/>
+                <box size="0.126 0.085 0.005"/>
             </geometry>
         </collision>
 
@@ -168,14 +168,14 @@
     <joint name="realsense_plate_joint" type="fixed">
         <parent link="upperplate_link"/>
         <child link="realsense_plate_link"/>
-        <origin xyz="0.035 0.0 0.007" rpy="0 0 0"/>
+        <origin xyz="0.066 0.0 0.006" rpy="0 0 0"/>
     </joint>
 
     <link name="realsense_plate_link">
         <visual>
-            <origin xyz="0.0 0.0 0.003" rpy="0 0 0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <box size="0.005 0.085 0.028"/>
+                <box size="0.005 0.085 0.022"/>
             </geometry>
             <material name="dark"/>
         </visual>
@@ -259,23 +259,23 @@
         </xacro:inertial_box>
     </link>
 
-  <joint name="rplidar_joint" topic_ns="scan" type="fixed">
+  <joint name="rplidar_joint" type="fixed">
     <parent link="base_link"/>
     <child link="rplidar_link"/>
-    <origin xyz="0.087 0.0 -0.003" rpy="3.14 0.0 0.0"/>
+    <origin xyz="0.068 0.0 -0.003" rpy="3.14 0.0 0.0"/>
   </joint>
 
   <link name="rplidar_link">
     <visual>
-        <origin xyz="0.0 0.0 -0.023" rpy="1.5708 0 0.7854"/>
+        <origin xyz="0.0 0.0 0.0" rpy="3.14 0 0"/>
             <!--<geometry>
                 <cylinder length="0.038" radius="0.036"/>
             </geometry>-->
         <geometry>
-            <!--<cylinder length="0.038" radius="0.036"/>-->
-            <mesh filename="package://jetbot_mirea_description/meshes/rplidar.dae" scale="0.001 0.001 0.001"/>
+            <cylinder length="0.038" radius="0.036"/>
+            <!--<mesh filename="package://jetbot_mirea_description/meshes/sensors/lds.stl" scale="0.01 0.01 0.01"/>-->
         </geometry>
-        <material name="black"/>
+        <material name="dark"/>
     </visual>
 
         <collision>
